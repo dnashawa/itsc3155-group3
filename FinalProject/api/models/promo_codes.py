@@ -7,7 +7,7 @@ from ..dependencies.database import Base
 class PromoCodes(Base):
     __tablename__ = "promo_codes"
 
-    code = Column(String(100), primary_key=True, Index=True)
+    code = Column(String(100), primary_key=True, index=True)
     discount = Column(Integer) #figure out what data type discount should be
     description = Column(String(300), nullable=False)
     start_date = Column(DATETIME, nullable=False, server_default=str(datetime.now()))
