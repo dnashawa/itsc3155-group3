@@ -6,6 +6,7 @@ class SandwichTagBase(BaseModel):
 
 class SandwichTagCreate(SandwichTagBase):
     sandwich_id: int
+    tags: str
 
 class SandwichTagUpdate(BaseModel):
     sandwich_id: Optional[int] = None
