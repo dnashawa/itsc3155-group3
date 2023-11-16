@@ -11,4 +11,3 @@ class Customer(Base):
     phone_number = Column(Integer, nullable=True, unique=True)
     address = Column(String(300), nullable=False)
     payment_info = Column(String(300))
-    #discuss if we should link customer table to order table

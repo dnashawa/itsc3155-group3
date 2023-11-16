@@ -4,7 +4,7 @@ from pydantic import BaseModel
 
 
 class PromoCodeBase(BaseModel):
-    discount: int
+    discount: float
     description: str
     end_date: datetime
 
@@ -14,7 +14,7 @@ class PromoCodeCreate(PromoCodeBase):
 
 
 class PromoCodeUpdate(BaseModel):
-    discount: Optional[int]
+    discount: Optional[float]
     description: Optional[str]
     end_date: Optional[datetime]
 
