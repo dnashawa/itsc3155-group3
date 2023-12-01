@@ -3,6 +3,7 @@ from sqlalchemy.orm import relationship
 from datetime import datetime
 from ..dependencies.database import Base
 
+
 class OrderDetail(Base):
     __tablename__ = "order_details"
 
@@ -14,5 +15,5 @@ class OrderDetail(Base):
     sandwich = relationship("Sandwich", back_populates="order_details")
     order = relationship("Order", back_populates="order_details")
 
-    review_description = Column(String, nullable=True)
-    rating = Column(Integer, nullable=True)
+    review_description = Column(String, nullable=True)  # implemented December 1 by Dylan
+    rating = Column(Integer, nullable=True)     # implemented December 1 by Dylan

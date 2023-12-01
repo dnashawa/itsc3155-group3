@@ -23,8 +23,8 @@ class OrderDetail(OrderDetailBase):
     id: int
     order_id: int
     sandwich: Sandwich = None
-    review_description: Optional[str] = None
-    rating: Optional[int] = None
+    review_description: Optional[str] = None  # implemented December 1 by Dylan
+    rating: Optional[int] = None    # implemented December 1 by Dylan
 
     class ConfigDict:
         from_attributes = True
