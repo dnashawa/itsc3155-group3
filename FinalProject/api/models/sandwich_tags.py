@@ -10,4 +10,3 @@ class SandwichTags(Base):
     tags = Column(String(100), primary_key=True)
 
     sandwich = relationship("Sandwich", back_populates="sandwich_tags")
-

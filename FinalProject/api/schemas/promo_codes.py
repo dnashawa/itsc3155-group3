@@ -20,6 +20,7 @@ class PromoCodeUpdate(BaseModel):
 
 
 class PromoCode(PromoCodeBase):
+    id: int
     code: str
     start_date: Optional[datetime] = None
 
