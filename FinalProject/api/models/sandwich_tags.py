@@ -3,7 +3,7 @@ from sqlalchemy.orm import relationship
 from datetime import datetime
 from ..dependencies.database import Base
 
-class SandwichTags(Base):
+class SandwichTag(Base):
     __tablename__ = "sandwich_tags"
 
     sandwich_id = Column(Integer, ForeignKey('sandwiches.id'), primary_key=True)
