@@ -1,6 +1,7 @@
 from datetime import datetime
 from typing import Optional
 from pydantic import BaseModel
+from .customers import Customer
 
 class ReviewBase(BaseModel):
     rating: int
@@ -18,7 +19,7 @@ class ReviewUpdate(BaseModel):
 
 class Review(ReviewBase):
     id: int
-    customers: Customers = None
+    customer: Customer = None
 
     class ConfigDict:
         from_attributes = True

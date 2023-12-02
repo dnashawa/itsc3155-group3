@@ -33,3 +33,12 @@ def update(item_id: int, request: schema.ReviewUpdate, db: Session = Depends(get
 @router.delete("/{item_id}")
 def delete(item_id: int, db: Session = Depends(get_db)):
     return controller.delete(db=db, item_id=item_id)
+
+@router.delete("/delete-table")
+def delete_reviews_table(db: Session = Depends(get_db)):
+    controller.delete_reviews_table(db)
+    return {"message": "Reviews table deleted"}
+
+
+
+

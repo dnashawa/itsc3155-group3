@@ -1,7 +1,9 @@
-from sqlalchemy import Column, ForeignKey, Integer, String, DECIMAL, DATETIME
+from sqlalchemy import create_engine, Column, ForeignKey, Integer, String, DECIMAL, DATETIME
 from sqlalchemy.orm import relationship
+from sqlalchemy.ext.declarative import declarative_base
 from ..dependencies.database import Base
 
+Base = declarative_base()
 
 class Customer(Base):
     __tablename__ = "customer"
