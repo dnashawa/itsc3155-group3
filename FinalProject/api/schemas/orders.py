@@ -11,6 +11,7 @@ class OrderBase(BaseModel):
     address: str
     type: str
     status: str = "Not Started"
+    promo_code: Optional[str]
 
 
 class OrderCreate(OrderBase):
@@ -24,6 +25,7 @@ class OrderUpdate(BaseModel):
     address: Optional[str]
     type: Optional[str]
     status: Optional[str] = "In Progress"
+    promo_code: Optional[str]
 
 
 class Order(OrderBase):

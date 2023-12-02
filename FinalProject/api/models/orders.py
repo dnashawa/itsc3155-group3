@@ -15,5 +15,7 @@ class Order(Base):
     address = Column(String(300), nullable=False)
     type = Column(String(100), nullable=False)
     status = Column(String(100), nullable=False)
+    promo_code = Column(String, ForeignKey('promo_codes.code'), nullable=True)
 
     order_details = relationship("OrderDetail", back_populates="order")
+    promo_codes = relationship("PromoCodes", back_populates="order")
