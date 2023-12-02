@@ -14,3 +14,4 @@ class Sandwich(Base):
 
     recipes = relationship("Recipe", back_populates="sandwich")
     order_details = relationship("OrderDetail", back_populates="sandwich")
+    sandwich_tags = relationship("SandwichTag", back_populates="sandwich") #added by abby 12/2
