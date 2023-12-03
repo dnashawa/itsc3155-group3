@@ -6,8 +6,9 @@ from sqlalchemy.exc import SQLAlchemyError
 
 def create(db: Session, request):
     new_item = model.Sandwich(
-        name=request.name,
-        description=request.description
+        sandwich_name=request.sandwich_name,
+        price = request.price,
+        calories = request.calories # lines 10 - 11 added 12/2 to fix fastapi bug - abby
     )
 
     try:

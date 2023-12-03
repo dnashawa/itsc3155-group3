@@ -15,5 +15,5 @@ class OrderDetail(Base):
     sandwich = relationship("Sandwich", back_populates="order_details")
     order = relationship("Order", back_populates="order_details")
 
-    review_description = Column(String, nullable=True)  # implemented December 1 by Dylan
+    review_description = Column(String(300), nullable=True)  # implemented December 1 by Dylan
     rating = Column(Integer, nullable=True)     # implemented December 1 by Dylan

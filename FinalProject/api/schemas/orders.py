@@ -7,11 +7,11 @@ from .order_details import OrderDetail
 class OrderBase(BaseModel):
     customer_name: str
     description: Optional[str] = None
-    phone_number: Optional[int]
+    phone_number: Optional[str]
     address: str
     type: str
     status: str = "Not Started"
-    promo_code: Optional[str]
+    promo_code_id: Optional[int]
 
 
 class OrderCreate(OrderBase):
@@ -21,11 +21,11 @@ class OrderCreate(OrderBase):
 class OrderUpdate(BaseModel):
     customer_name: Optional[str] = None
     description: Optional[str] = None
-    phone_number: Optional[int]
+    phone_number: Optional[str] #changed to string
     address: Optional[str]
     type: Optional[str]
     status: Optional[str] = "In Progress"
-    promo_code: Optional[str]
+    promo_code_id: Optional[int]
 
 
 class Order(OrderBase):
