@@ -7,7 +7,16 @@ from sqlalchemy.exc import SQLAlchemyError
 def create(db: Session, request):
     new_item = model.Order(
         customer_name=request.customer_name,
-        description=request.description
+        description=request.description,
+        phone_number=request.phone_number, #lines 1, 11-15 added by abby 12/2 to fix fastAPI bugs
+        address=request.address,
+        order_type=request.order_type,
+        order_status=request.order_status,
+        promo_code_id=request.promo_code_id,
+        payment_type=request.payment_type, #lines 16 - 18 added by abby 12/2 to meet requirements
+        payment_status=request.payment_status,
+        payment_info=request.payment_info
+
     )
 
     try:
