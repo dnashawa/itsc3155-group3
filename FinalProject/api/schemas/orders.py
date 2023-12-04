@@ -8,6 +8,7 @@ class OrderBase(BaseModel):
     customer_name: str
     description: Optional[str] = None
     phone_number: Optional[str]
+    order_date: Optional[datetime]
     address: str
     order_type: str
     order_status: str = "Not Started"

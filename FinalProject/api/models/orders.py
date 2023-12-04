@@ -10,7 +10,7 @@ class Order(Base):
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     customer_name = Column(String(100))
     order_date = Column(DATETIME, nullable=False,
-                        server_default=func.now())  # altered 12/4 by Dylan, CURRENTLY NON-FUNCTIONAL
+                        server_default=func.now())  # altered 12/4 by Dylan
     description = Column(String(300))
     phone_number = Column(String(20), nullable=True, unique=True) #changed to string since INT was not cooperating
     address = Column(String(300), nullable=False)

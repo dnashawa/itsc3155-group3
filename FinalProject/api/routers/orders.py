@@ -36,6 +36,6 @@ def delete(item_id: int, db: Session = Depends(get_db)):
     return controller.delete(db=db, item_id=item_id)
 
 
-@router.get("/orders-by-date/")  # implemented 12/4 by Dylan, CURRENTLY NON-FUNCTIONAL
+@router.get("/orders-by-date/")  # implemented 12/4 by Dylan
 def read_orders_between_dates(start_date: datetime, end_date: datetime, db: Session = Depends(get_db)):
     return controller.get_orders_between_dates(db=db, start_date=start_date, end_date=end_date)
