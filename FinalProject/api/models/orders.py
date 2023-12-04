@@ -1,4 +1,4 @@
-from sqlalchemy import Column, ForeignKey, Integer, String, DECIMAL, DATETIME
+from sqlalchemy import Column, ForeignKey, Integer, String, DECIMAL, DATETIME, func
 from sqlalchemy.orm import relationship
 from datetime import datetime
 from ..dependencies.database import Base
@@ -9,7 +9,8 @@ class Order(Base):
 
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     customer_name = Column(String(100))
-    order_date = Column(DATETIME, nullable=False, server_default=str(datetime.now()))
+    order_date = Column(DATETIME, nullable=False,
+                        server_default=func.now())  # altered 12/4 by Dylan, CURRENTLY NON-FUNCTIONAL
     description = Column(String(300))
     phone_number = Column(String(20), nullable=True, unique=True) #changed to string since INT was not cooperating
     address = Column(String(300), nullable=False)

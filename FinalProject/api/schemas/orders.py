@@ -17,7 +17,6 @@ class OrderBase(BaseModel):
     payment_info: Optional[str]
 
 
-
 class OrderCreate(OrderBase):
     pass
 
@@ -33,6 +32,8 @@ class OrderUpdate(BaseModel):
     payment_type: Optional[str] #lines 33 - 35 added by abby 12/2 to meet requirements
     payment_status: Optional[str] = "Processed"
     payment_info: Optional[str]
+
+
 class Order(OrderBase):
     id: int
     order_date: Optional[datetime] = None
