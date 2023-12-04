@@ -7,7 +7,9 @@ from sqlalchemy.exc import SQLAlchemyError
 def create(db: Session, request):
     new_item = model.PromoCode(
         code=request.code,
-        description=request.description
+        discount=request.discount, #added by abby 12/4 to fix fastAPI bug
+        description=request.description,
+        end_date=request.end_date #added by abby 12/4 to fix fastAPI bug
     )
 
     try:

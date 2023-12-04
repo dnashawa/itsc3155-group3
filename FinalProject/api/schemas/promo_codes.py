@@ -15,6 +15,7 @@ class PromoCodeCreate(PromoCodeBase):
 
 
 class PromoCodeUpdate(BaseModel):
+    code: Optional[str]
     discount: Optional[float]
     description: Optional[str]
     end_date: Optional[datetime]

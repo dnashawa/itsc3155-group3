@@ -27,8 +27,8 @@ class OrderUpdate(BaseModel):
     description: Optional[str] = None
     phone_number: Optional[str] #changed to string
     address: Optional[str]
-    type: Optional[str]
-    status: Optional[str] = "In Progress"
+    order_type: Optional[str]
+    order_status: Optional[str] = "In Progress"
     promo_code_id: Optional[int]
     payment_type: Optional[str] #lines 33 - 35 added by abby 12/2 to meet requirements
     payment_status: Optional[str] = "Processed"
