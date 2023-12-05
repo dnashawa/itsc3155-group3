@@ -8,7 +8,7 @@ def create(db: Session, request):
     new_item = model.Recipe(
         sandwich_id=request.sandwich_id,
         resource_id=request.resource_id,
-        amount = request.amount  # lines 9-11 added due to bugs in fastapi 12/2 - abby
+        amount=request.amount  # lines 9-11 added due to bugs in fastapi 12/2 - abby
     )
 
     try:

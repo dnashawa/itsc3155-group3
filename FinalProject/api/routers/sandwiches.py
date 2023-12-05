@@ -1,8 +1,13 @@
 from fastapi import APIRouter, Depends, FastAPI, status, Response
+from sqlalchemy import func
 from sqlalchemy.orm import Session
 from ..controllers import sandwiches as controller
 from ..schemas import sandwiches as schema
 from ..dependencies.database import engine, get_db
+from datetime import datetime
+from ..schemas.sandwiches import Sandwich
+from ..schemas.order_details import OrderDetail
+from ..schemas.orders import Order
 
 router = APIRouter(
     tags=['Sandwiches'],
@@ -33,3 +38,7 @@ def update(item_id: int, request: schema.SandwichUpdate, db: Session = Depends(g
 @router.delete("/{item_id}")
 def delete(item_id: int, db: Session = Depends(get_db)):
     return controller.delete(db=db, item_id=item_id)
+
+@router.get("/popular-sandwiches/")
+def read_most_popular_sandwich(start_date: datetime, end_date: datetime, db: Session = Depends(get_db)):
+    return controller.get_most_popular_sandwich(db=db, start_date=start_date, end_date=end_date)

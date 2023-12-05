@@ -3,6 +3,7 @@ from sqlalchemy.orm import Session
 from ..controllers import promo_codes as controller
 from ..schemas import promo_codes as schema
 from ..dependencies.database import engine, get_db
+from datetime import datetime
 
 router = APIRouter(
     tags=['Promo Codes'],
@@ -33,3 +34,7 @@ def update(item_id: int, request: schema.PromoCodeUpdate, db: Session = Depends(
 @router.delete("/{item_id}")
 def delete(item_id: int, db: Session = Depends(get_db)):
     return controller.delete(db=db, item_id=item_id)
+
+@router.get("/valid-promo-codes/")
+def get_valid_promo_codes(date: datetime, db: Session = Depends(get_db)):
+    return controller.get_valid_codes(db=db, date=date)
