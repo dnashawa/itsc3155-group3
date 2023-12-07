@@ -72,10 +72,11 @@ def delete(db: Session, item_id):
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=error)
     return Response(status_code=status.HTTP_204_NO_CONTENT)
 
+
 def get_valid_codes(db: Session, date: datetime):
     try:
         codes = (
-            db.query(PromoCode.id).filter((cast(PromoCode.start_date, Date) <= date) | (cast(PromoCode.end_date, Date) >= date)).all()
+            db.query(PromoCode).filter((cast(PromoCode.start_date, Date) <= date.date()), (cast(PromoCode.end_date, Date) >= date.date())).all()
         )
     except SQLAlchemyError as e:
         error = str(e.__dict__['orig'])
